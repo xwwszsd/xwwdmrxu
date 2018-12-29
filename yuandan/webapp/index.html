@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    	.base{
+    		width: 100%;
+    		height: 100vh;
+    		background-image: url("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1654455579,3542827563&fm=26&gp=0.jpg");
+    		background-repeat: no-repeat;
+    		background-color: #fec104;
+    		background-size: 100%;
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    			
+    	}
+    	.con{
+    		width: 30%;
+    		height: 10%;
+    		
+    		margin-top: 110%;
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    	}
+    	.anniu{
+    		
+    	}
+    </style>
+    <script type="text/javascript">
+    	
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+   			
+   		});
+   		
+   		function plusready()
+   		{
+   			var ws=plus.webview.currentWebview();
+   		}
+   		function opennewview()
+   		{
+   			
+   			window.location.href="login.html";
+   			
+   		}
+    </script>
+</head>
+<body>
+	<div class="base">
+		<div class="con">
+			<button  class="btn btn-success" onclick="opennewview()">进入页面</button>
+		</div>
+		
+	</div>
+	
+</body>
+</html>

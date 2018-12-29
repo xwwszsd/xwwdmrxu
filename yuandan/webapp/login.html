@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<style type="text/css">
+			* {
+				margin: 0px;
+				font-family: 楷体;
+				font-size: 1.0rem;
+			}
+			
+			body {
+				width: 100%;
+				height:100vh;
+				background-color: #4169E1;
+				background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545739447945&di=a670fa2a86a8d9ca3cd4656ffb7102a1&imgtype=0&src=http%3A%2F%2Fb.zol-img.com.cn%2Fsjbizhi%2Fimages%2F6%2F320x510%2F1395654107442.jpg");
+			    background-size: 100%;
+			    background-repeat: no-repeat;
+			}
+			
+			.header {
+				width: 100%;
+				height: 12%;
+				background-color: aquamarine;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 20px;
+				font-family: 楷体;
+			}
+			
+			.base {
+				width: 100%;
+				height: 80%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				
+			}
+			.topview{
+				width: 80%;
+			height: 15%;
+	
+			}
+		
+		.loginview{
+			
+			width: 70%;
+			height: 40%;
+
+			display: flex;
+			flex-direction: column;
+				justify-content: center;
+							align-items: center;
+							
+		}
+		.cell{
+			width: 80%;
+			height: 20%;
+			
+			margin: 15px;
+			
+			display: flex;
+				justify-content: center;
+							align-items: center;
+		}
+		input{
+			text-align: center;
+			width:100%;
+			height:100%;
+		}
+		
+			.footer {
+				width: 100%;
+				height: 8%;
+				background-color: aquamarine;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.fhdiv{
+				width: 10%;
+				height: 30px;
+				display: flex;
+				margin-top:-20px;
+				margin-left: 5px;
+			}
+		.fanuhi{
+			height: 30px;
+			width: 30px;
+			
+		}
+		.fhimg{
+			height: 100%;
+			width: 100%;
+		}      
+		.titleinfo{
+			width: 100%;
+			height: 60px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 20px;
+			margin-left: -30px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<div class="fhdiv" id="fhbtn">
+				<span class="fanuhi"><img src="img/fanhui.png" class="fhimg"></img></span>
+			</div>
+			
+			<div class="titleinfo">
+				 乐购果园
+			</div>
+                  
+             
+		</div>
+		<div class="base">
+		 <div class="topview">
+		 	<img  src="./img/p1.jpg"  width="100%"  height="100%"/>
+		 </div>
+	     <div class="loginview">
+	     	<div  class="cell">
+	     		<input  type="text"  id="username"  placeholder="请输入用户姓名:" />
+	     	</div>
+	     	<div class="cell">
+	     		<input  type="password"  id="userpwd"  placeholder="请输入用户密码:" />
+	     	</div>
+	     	<div class="cell">
+	     			<!--
+                     	作者：1574291501@qq.com
+                     	时间：2018-12-25
+                     	描述：
+                     <input  type="button"  value="用户登录"  id="userlogin"/> -->
+	     			<input type="button" class="btn btn-info" id="userlogin" value="用户登录">
+	     	</div>
+	     </div>
+
+		</div>
+		<div class="footer">
+                  杨梅杏脯_XWW个人出品
+		</div>
+	</body>
+	<script type="text/javascript">
+	
+	   var  loginbtn=document.getElementById("userlogin");
+	   var  fhobj=document.getElementById("fhbtn");
+	   fhobj.onclick=function()
+	   {
+	   	  window.location.href="index.html";
+	   }
+	   loginbtn.onclick=function()
+	   {
+		   alert("按钮被点击");
+		   var  nameObj= document.getElementById("username");
+		   var  pwdObj= document.getElementById("userpwd");
+		   
+		   alert(nameObj.value+","+pwdObj.value);
+		   
+		   //带有请求的参数  FormData
+		   var formdatas=new FormData();
+		   formdatas.append("action","login");
+		   formdatas.append("username",nameObj.value);
+		   formdatas.append("userpwd",pwdObj.value);
+		   
+		   var  options={method:"post",body:formdatas};
+		   
+		   //新一代ajax技术fetch
+		   
+		   fetch(" http://8tyt4e.natappfree.cc/user",options).then(function(response){
+			   
+			   if(response.status==200)
+			   {
+				   alert("连接成功");
+				   
+				   //接受参数
+				   response.json().then(function(data){
+					   
+					   //alert(data.mesg);
+					   //alert(data.contentdata);
+					   //alert(typeof data.contentdata);
+					   
+					  // var jsondata=data.contentdata;
+					   /**jsondata.forEach(function(val,index){
+						   
+						   alert(val["tname"]);
+						   
+					   })**/
+					  alert(data.mesg);
+					   
+					   if(data.mesg=="success")
+					   {
+						   //encodeURI设置编码的函数
+						   window.location.href="shopmain.html";/*?params="+encodeURI(JSON.stringify(jsondata))*/
+					   }
+					   else
+					   {
+						   
+					   }
+				   });
+			   }
+			   
+			   
+		   }).catch(function(error){
+			   
+			   alert("连接异常"+error);
+		   });
+		   
+		   alert("end");
+		   
+	   }
+	
+
+	
+	</script>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.base{
+				width: 100%;
+				height: 100vh;
+
+				display: flex;
+				background-color: azure;
+				justify-content: center;
+				align-items: center;
+			}
+			.content{
+				width: 550px;
+				height: 450px;
+				border: 1px solid red;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				background-image: url("https://img01.sogoucdn.com/app/a/100520093/f8c23117565d273b-13c13ce17525a788-81784a526d0224865906dcc4c62bac63.jpg");
+				background-repeat: no-repeat;
+			    background-size: 100% 100%;
+			}
+			form{
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			input{
+				margin: 20px;
+			}
+			#nametxt{
+				width: 200px;
+				height: 30px;
+				text-align: center;
+			}
+			#pwdtxt{
+				width: 200px;
+				height:30px;
+				text-align: center;
+			}
+			#subtn{
+				width: 100px;
+				height: 30px;
+				text-align: center;
+
+			}
+			.title{
+				font-size: 30px;
+			}
+			.sexdiv{
+			    display: flex;
+
+				justify-content: center;
+				align-items: center;
+			}
+				.button {
+  display: inline-block;
+
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+		</style>
+</head>
+<body>
+<div class="base">
+
+			<div class="content">
+				<div class="title">用户注册</div>
+				<form method="post" action="user?action=register">
+					<input type="text" name="txt" id="nametxt" value="" placeholder="用户名"/>
+					<span id="show"></span>
+					<input type="password" id="pwdtxt" placeholder="密码"/>
+
+
+					<input type="submit" id="subtn" value="提交" class="button"/>
+				</form>
+			</div>
+		</div>
+</body>
+ <script type='text/javascript' src='/xiangmu1/dwr/interface/xww.js'></script>
+  <script type='text/javascript' src='/xiangmu1/dwr/engine.js'></script>
+
+
+  <script type='text/javascript' src='/xiangmu1/dwr/util.js'></script>
+	<script type="text/javascript">
+		var checkuname=document.getElementById("nametxt");
+
+		var checkupwd=document.getElementById("pwdtxt");
+		var show=document.getElementById("show");
+
+
+
+		var inpval=document.getElementById("nametxt");
+
+
+
+
+
+
+		checkuname.onblur=function(){
+
+			xww.checkonlyname(this.value,function(datas){
+				console.log(inpval.value);
+				console.log(datas);
+				if(inpval.value=="")
+					{
+					   show.innerText="用户名不能为空";
+					   show.style.color="red";
+
+					}
+
+				else{
+					if(datas=="ok"){
+
+						show.innerText="可以用此名";
+						show.style.color="green";
+
+
+
+					}
+					else{
+						show.innerText="不可以用此名";
+						show.style.color="red";
+					}
+				}
+
+			});
+		}
+		subtn.onclick=function(){
+			xww.zhuceinfo(checkuname.value,checkupwd.value,a,function(){
+				alert("提交成功");
+			})
+		}
+
+	</script>
+</html>

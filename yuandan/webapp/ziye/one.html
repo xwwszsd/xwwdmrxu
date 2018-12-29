@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+			<style type="text/css">
+			* {
+				margin: 0px;
+				font-family: 楷体;
+				font-size: 1.0rem;
+			}
+			
+			body {
+				width: 100%;
+				height: 100vh;
+				background-color: #4169E1;
+			}
+			
+			.header {
+				width: 100%;
+				height: 12%;
+				background-color: aquamarine;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.base {
+				width: 100%;
+				height: 80%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+			}
+			.topview{
+				width: 80%;
+			height: 15%;
+	
+			}
+		
+		.loginview{
+			
+			width: 50%;
+			height: 40%;
+
+			display: flex;
+			flex-direction: column;
+				justify-content: center;
+							align-items: center;
+							
+		}
+		.cell{
+			width: 80%;
+			height: 30%;
+			border: 1px  solid  #00FFFF;
+			margin: 5px;
+			
+			display: flex;
+				justify-content: center;
+							align-items: center;
+		}
+		input{
+			text-align: center;
+			width:100%;
+			height:100%;
+		}
+		
+			.footer {
+				width: 100%;
+				height: 8%;
+				background-color: aquamarine;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+             南科技学生Java语言
+		</div>
+		<div class="base">
+		Java语言
+		<hr>
+		 <canvas id="mountNode"></canvas>
+
+		</div>
+		<div class="footer">
+            天汇智码_凸版荣誉出品
+		</div>
+	</body>
+<script src="https://gw.alipayobjects.com/os/antv/assets/f2/3.3.0/f2.min.js"></script>
+<script type="text/javascript">
+
+//alert("请求业务报表");
+
+   var  formData=new FormData();
+   formData.append("datas","queryfruitadd");
+
+   var options={method:'post',body:formData};
+  
+   fetch(" http://8tyt4e.natappfree.cc/antv",options).then(function(response){
+	  
+	  if(response.status==200)
+	  {
+		  
+		  
+		  response.json().then(function(datas){
+			  
+			  alert(datas.jsdata);
+			  
+			  createView(datas.jsdata);
+			  
+		  });
+	  }
+	  
+  }).catch(function(error){
+	  
+	  
+  });
+   
+   
+   function   createView(data)
+   {
+	   var chart = new F2.Chart({
+		   id: 'mountNode',
+		   pixelRatio: window.devicePixelRatio
+		 });
+	   
+	   chart.source(data, {
+		   sales: {
+			   tickCount: 2
+		   }
+	    });
+	   
+
+		 chart.interval().position('tyfadd*count');
+		 chart.render();
+   }
+
+</script>
+
+</html>

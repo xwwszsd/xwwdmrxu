@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				font-family: 楷体;
+				font-size: 0.8rem;
+			}
+			
+			body {
+				width: 100%;
+				height: 100vh;
+				background-color: #4169E1;
+				background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545739447945&di=a670fa2a86a8d9ca3cd4656ffb7102a1&imgtype=0&src=http%3A%2F%2Fb.zol-img.com.cn%2Fsjbizhi%2Fimages%2F6%2F320x510%2F1395654107442.jpg");
+			    background-size: 100%;
+			    background-repeat: no-repeat;
+			}
+			
+			.header {
+				width: 100%;
+				height: 12%;
+				background-color:  #00ccff;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 20px;
+				font-family: 楷体;
+			}
+			
+			.base {
+				width: 100%;
+				height: 80%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+			}
+			.cell{
+				width: 80px;
+				height: 80px;
+				border: 2px  solid  #7FFFD4;
+				margin: 5px;
+				border-radius: 5px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			.footer {
+				width: 100%;
+				height: 8%;
+				background-color: #ffffb3;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.fhdiv{
+				width: 10%;
+				height: 30px;
+				display: flex;
+				margin-top:-20px;
+				margin-left: 5px;
+			}
+		.fanuhi{
+			height: 30px;
+			width: 30px;
+			
+		}
+		.fhimg{
+			height: 100%;
+			width: 100%;
+		}
+		.titleinfo{
+			width: 100%;
+			height: 60px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 20px;
+			margin-left: -30px;
+		}
+		.cell1 {
+				width: 25%;
+				height: 100%;
+				 display: flex;
+				 flex-direction: column;
+				 align-items: center;
+				 justify-content: center;
+				 	
+			}
+		.cell1>img{
+			width: 28%;
+			height: 48%;
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="header">
+			<div class="fhdiv" id="fhbtn">
+				<span class="fanuhi"><img src="img/fanhui.png" class="fhimg"></img></span>
+			</div>
+			
+			<div class="titleinfo">
+				 南科技学生课程
+			</div>
+                  
+             
+		</div>
+		<div class="base">
+			
+
+		</div>
+		<div class="footer">
+            <div class="cell1">
+					   <img  src="img/shouye.png" class="imgc"/>
+					   首页
+				</div>
+				<div class="cell1">
+					 <img  src="img/fuwu.png" class="imgc" />
+					  服务
+				</div>
+				<div class="cell1">
+					 <img  src="img/anli.png"  class="imgc"/>
+					 案例
+				</div>
+				<div class="cell1">
+					 <img  src="img/wode.png" class="imgc"/>
+					我的
+				</div>
+		</div>
+	</body>
+<script type="text/javascript">
+  var  baseObj= document.getElementsByClassName("base")[0];
+   var  fhobj=document.getElementById("fhbtn");
+   var  cell1obj=document.getElementsByName("cell1");
+   var imgobj=document.getElementsByName("imgc");
+  for(var i=0;i<cell1obj.length;i++)
+  {
+  	cell1obj[i].onmouseover=function()
+  	{
+  	   
+  	}
+  }
+	   fhobj.onclick=function()
+	   {
+	   	  window.location.href="login.html";
+	   }
+function UrlSearch()
+{
+	
+	//decodeURI location.search-->?之后的参数
+	var url =decodeURI(location.search);
+	//alert(url);
+	
+	var  str=url.substr(url.indexOf("=")+1);
+    //alert(str);
+    
+    //字符串转换成json
+    var datas=JSON.parse(str);
+    
+    alert(datas.length);
+    
+    datas.forEach(function(value,index){
+	
+	    //alert(value["tname"]);
+	   var  divObj= document.createElement("div");
+	   divObj.className="cell";
+	   divObj.setAttribute("onclick","forward('"+value["turl"]+"')")
+	   divObj.innerText=value["tname"];
+	   baseObj.appendChild(divObj);
+	   //alert(value["imgpath"]);
+	   var imgObj=document.createElement("img");
+	   imgObj.setAttribute("src",value["imgpath"]);
+	   divObj.appendChild(imgObj);
+
+	   
+    });
+    
+	
+}
+UrlSearch();
+
+function forward(id)
+{
+	
+    window.location.href=id;
+	
+}
+</script>
+</html>

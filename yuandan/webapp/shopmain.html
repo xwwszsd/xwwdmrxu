@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			.base{
+				width: 100%;
+				height: 100vh;
+				
+			}
+			.top{
+				width: 100%;
+				height: 30%;
+				background-color: aquamarine;
+			}
+			.content{
+				width: 100%;
+				height: 60%;
+				
+			}
+			.gongge{
+				width: 100%;
+				height: 20%;
+				display: flex;
+				border: 1px solid red;
+			}
+			.cell{
+				width: 25%;
+				height: 100%;
+				
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				
+			}
+			.conimg{
+				width: 45px;
+				height: 45px;
+				
+				display: flex;
+				
+				justify-content: center;
+				align-items: center;
+				border-radius: 10px;
+				margin: 5px;
+			}
+			#conimg1{
+				background-color: greenyellow;
+			}
+			#conimg2{
+				background-color: pink;
+			}
+			#conimg3{
+				background-color: lightskyblue;
+			}
+			#conimg4{
+				background-color: red;
+			}
+			.contxt{
+				width: 65px;
+				height: 15px;
+				
+				display: flex;
+				font-family: '楷体';
+				justify-content: center;
+				align-items: center;
+				
+				
+			}
+			.conimgcss{
+				width: 100%;
+				height: 100%;
+			}
+			p{
+				margin-top: 10px;
+			}
+			.liebiao{
+				width: 100%;
+				height: 55%;
+				border: 1px solid darkgray;
+				
+			}
+			.dyg{
+				width: 100%;
+				height: 75%;
+				margin-top: 5px;
+				border: 1px solid darkgray;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.xtp{
+				width: 28%;
+				height: 120px;
+				border: 1px solid darkgray;
+				margin: 5px;
+			}
+			.foot{
+				width: 100%;
+				height: 10%;
+				background-color: aquamarine;
+				display: flex;
+				
+			}
+			.list{
+				width: 25%;
+				height: 100%;
+				border: 1px solid red;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				
+			}
+			.footimg{
+				width: 35px;
+				height: 35px;
+				
+				display: flex;
+				
+				justify-content: center;
+				align-items: center;
+			}
+			.foottxt{
+				width: 45px;
+				height: 15px;
+				font-family: '楷体';
+				display: flex;
+				
+				justify-content: center;
+				align-items: center;
+			}
+			.ftimgcss{
+				width: 100%;
+				height: 100%;
+			}
+			.ftimgcss1{
+				width: 80%;
+				height: 80%;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="base">
+			<div class="top">
+				
+			</div>
+			<div class="content">
+				<div class="gongge">
+					<div class="cell">
+						<div class="conimg" id="conimg1"><img src="img/mrth.png" class="conimgcss"></div>
+						<div class="contxt">每日特惠</div>
+					</div>
+					<div class="cell">
+						<div class="conimg" id="conimg2"><img src="img/dztj.png" class="conimgcss"></div>
+						<div class="contxt">店长推荐</div>
+					</div>
+					<div class="cell">
+						<div class="conimg" id="conimg3"><img src="img/ppdp.png" class="conimgcss"></div>
+						<div class="contxt">拼盘搭配</div>
+					</div>
+					<div class="cell">
+						<div class="conimg" id="conimg4"><img src="img/jqzx.png" class="conimgcss"></div>
+						<div class="contxt">近期促销</div>
+					</div>
+				</div>
+				<div class="liebiao">
+					<p>今日特价</p>
+					<div class="dyg">
+						<div class="xtp"></div>
+						<div class="xtp"></div>
+						<div class="xtp"></div>
+					</div>
+				</div>
+			</div>
+			<div class="foot">
+				<div class="list" id="shouye">
+					<div class="footimg"><img src="img/shouye1.png" class="ftimgcss"></div>
+					<div class="foottxt">首页</div>
+				</div>
+				<div class="list" id="fenlei">
+					<div class="footimg"><img src="img/fenlei.png" class="ftimgcss1"></div>
+					<div class="foottxt">分类</div>
+				</div>
+				<div class="list" id="zixun">
+					<div class="footimg"><img src="img/zixun.png" class="ftimgcss1"></div>
+					<div class="foottxt" class="zixun" >资讯</div>
+				</div>
+				<div class="list" id="wode">
+					<div class="footimg"><img src="img/wode.png" class="ftimgcss1"></div>
+					<div class="foottxt">我的</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var shouyeobj=document.getElementById("shouye");
+		var fenleiobj=document.getElementById("fenlei");
+		var zixunobj=document.getElementById("zixun");
+		var wodeobj=document.getElementById("wode");
+		shouyeobj.onclick=function(){
+			window.location.href="shouye.html";
+		}
+		fenleiobj.onclick=function(){
+			window.location.href="fenlei.html";
+		}
+		zixunobj.onclick=function(){
+			window.location.href="zixun.html";
+		}
+		wodeobj.onclick=function(){
+			window.location.href="wode.html";
+		}
+	</script>
+</html>
